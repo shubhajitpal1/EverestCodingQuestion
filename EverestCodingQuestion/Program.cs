@@ -28,7 +28,7 @@ for (int i = 0; i < noOfPackages; i++)
 }
 
 // Calculate discounts and total cost for all packages
-OfferService offerService = new OfferService();
+IOfferService offerService = new OfferService();
 foreach (var pkg in packages)
 {
     double deliveryCost = baseDeliveryCost + (pkg.Weight * 10) + (pkg.Distance * 5);
@@ -53,7 +53,7 @@ else if (problemNumber == 2)
     double maxSpeed = double.Parse(vehicleLine[1]);
     double maxCarriableWeight = double.Parse(vehicleLine[2]);
     // Estimate delivery time
-    LogisticsService logisticsService = new LogisticsService(noOfVehicles, maxSpeed, maxCarriableWeight);
+    ILogisticsService logisticsService = new LogisticsService(noOfVehicles, maxSpeed, maxCarriableWeight);
     //var deliveryTimes = logisticsService.EstimateDeliveryTimes(packages, noOfVehicles, maxSpeed, maxCarriableWeight);
     var deliveryTimes = logisticsService.EstimateDeliveryTimes(packages);
 
